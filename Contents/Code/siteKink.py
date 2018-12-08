@@ -36,7 +36,7 @@ def update(metadata,siteID,movieGenres):
     # Summary
     metadata.studio = "Kink.com"
     metadata.summary = detailsPageElements.xpath('//meta[@name="description"]/@content')
-    metadata.title = detailsPageElements.xpath('//title/text())
+    metadata.title = detailsPageElements.xpath('//title/text()')
     releasedDate = detailsPageElements.xpath('//div[@class="updatedDate"]')[0].text_content()[14:24]
     date_object = datetime.strptime(releasedDate, '%Y-%m-%d')
     metadata.originally_available_at = date_object
