@@ -2,7 +2,7 @@ import siteBrazzers
 import site21Naturals
 import siteBlacked
 import siteNaughtyAmerica
-import siteVixen 
+import siteVixen
 import siteGirlsway
 import siteXart
 import siteBangBros
@@ -34,8 +34,9 @@ import sitePrivate
 import sitePassionHD
 import siteFantasyHD
 import sitePornPros
+import siteKink
 
-searchSites = [None] * 328
+searchSites = [None] * 329
 searchSites[1] = ["Blacked com","Blacked","https://www.blacked.com","https://www.blacked.com/search?q="]
 searchSites[0] = ["Blackedraw com","BlackedRaw","https://www.blackedraw.com","https://www.blackedraw.com/search?q="]
 searchSites[2] = ["Brazzers.com","Brazzers","http://www.brazzers.com","http://www.brazzers.com/search/all/?q="]
@@ -364,6 +365,8 @@ searchSites[324] = ["CumDisgrace","CumDisgrace","https://www.pornpros.com","http
 searchSites[325] = ["CockCompetition","CockCompetition","https://www.pornpros.com","https://pornpros.com/video/"]
 searchSites[326] = ["PimpParade","PimpParade","https://www.pornpros.com","https://pornpros.com/video/"]
 searchSites[327] = ["SquirtDisgrace","SquirtDisgrace","https://www.pornpros.com","https://pornpros.com/video/"]
+searchSites[328] = ["The Upper Floor","The Upper Floor","https://kink.com","https://www.kink.com/search?q="]
+searchSites[329] = ["Sex and Submission","Sex and Submission","https://kink.com","https://www.kink.com/search?q="]
 
 def getSearchBaseURL(siteID):
     return searchSites[siteID][2]
