@@ -2,7 +2,12 @@ import PAsearchSites
 import PAgenres
 
 def search(results,encodedTitle,title,searchTitle,siteNum,lang,searchByDateActor,searchDate, searchAll, searchsiteID):
-    searchResults = HTML.ElementFromURL(PAsearchSites.getSearchSearchURL(siteNum) + encodedTitle)
+    searchPageContent = HTTP.Request(PAsearchSites.getSearchSearchURL(siteNum) + encodedTitle)
+    searchPageContent = str(searchPageContent).split('":"')
+    searchPageResult = searchPageContent[len(searchPageContent)-1][:-2]
+    searchPageResult = searchPageResult.replace('\\n',"").replace('\\',"")
+    Log(searchPageResult)
+    searchResults = HTML.ElementFromString(searchPageResult)
     for searchResult in searchResults.xpath('//div[contains(@class,"shoot")]'):
         titleNoFormatting = searchResult.xpath('.//div[@class="shoot-thumb-title"]/div[@class="script"]/a/text()')
         Log(str(titleNoFormatting))
@@ -83,6 +88,12 @@ def update(metadata,siteID,movieGenres):
     metadata.posters[posterURL] = Proxy.Preview(HTTP.Request(posterURL).content, sort_order = 1)
 
     background = detailsPageElements.xpath('//video[@poster]/@poster')
-    metadata.art[background] = Proxy.Preview(HTTP.Request(background).content, sort_order = 1)
-    metadata.posters[background] = Proxy.Preview(HTTP.Request(background).content, sort_order = 1)
+    try:
+        metadata.art[background] = Proxy.Preview(HTTP.Request(background).content, sort_order = 1)
+    except:
+        pass
+    try:
+        metadata.posters[background] = Proxy.Preview(HTTP.Request(background).content, sort_order = 1)
+    except:
+        pass
     return metadata
